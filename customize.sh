@@ -1,6 +1,6 @@
 #!/sbin/sh
 #####################
-# V2ray Customization
+# Shadowsocks-rust Customization
 #####################
 SKIPUNZIP=1
 

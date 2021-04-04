@@ -1,8 +1,6 @@
 # Shadowsocks Magisk Module
 
-This is a shadowsocks module for Magisk, and includes binaries for arm64 (android 7.0+)
-
-
+This is a shadowsocks module for Magisk, adapted from [magisk-module-installer](https://github.com/topjohnwu/magisk-module-installer). The module should work for arm64 (android 7.0+).
 
 ## Included
 
@@ -10,7 +8,6 @@ This is a shadowsocks module for Magisk, and includes binaries for arm64 (androi
 * [overture](<https://github.com/shawn1m/overture>)
 * [v2ray-plugin](<https://github.com/shadowsocks/v2ray-plugin>)
 * [ss-rules](<https://github.com/shadowsocks/luci-app-shadowsocks/blob/master/files/root/usr/bin/ss-rules-without-ipset>)
-* [magisk-module-installer](https://github.com/topjohnwu/magisk-module-installer)
 * [china_ip_list](https://github.com/17mon/china_ip_list)
 
 - shadowsocks-rust service script and Android transparent proxy iptables script, adapted from [magisk-module-installer](https://github.com/topjohnwu/magisk-module-installer)
@@ -21,7 +18,7 @@ This is a shadowsocks module for Magisk, and includes binaries for arm64 (androi
 
 You can download the release installer zip file and install it via the Magisk Manager App.
 
-
+**The script `customize.sh` in the installer will download binaries from github that are compiled by myself. When you choose to install the module, you do so at your own risk.**
 
 ## Config
 
@@ -58,11 +55,14 @@ You can download the release installer zip file and install it via the Magisk Ma
 
 - Transparent proxy won't take effect until the shadowsocks-rust service start normally and file `/data/shadowsocks/appid.list` is not empty.
 
+#### The Best Practice on the Sever Side
+
+- Stronly recommend to deploy a dns-over-https server on the server side, such as [dns-over-https](<https://github.com/m13253/dns-over-https>). Use that doh server by editing the file `/data/shadowsocks/overture/config.yml`. 
 
 
 #### Share transparent proxy to WiFi guest or USB guest
 
-(I didn't test it)
+**It has not been tested**
 
 - Transparent proxy is share to WiFi guest by default.
 - If you don't want to share proxy to WiFi guest or USB guest, delete the file `/data/shadowsocks/softap.list` or empty it.
@@ -167,7 +167,4 @@ Yet another SIP003 plugin for shadowsocks, based on v2ray
 
 ## License
 
-[The MIT License (MIT)](https://github.com/shadowsocks/shadowsocks-rust/blob/master/LICENSE)
-[The MIT License (MIT)](https://github.com/shawn1m/overture/blob/master/LICENSE)
-[The MIT License (MIT)](https://github.com/shadowsocks/v2ray-plugin/blob/master/LICENSE)
 [GNU General Public License v3.0](https://github.com/shadowsocks/luci-app-shadowsocks/blob/master/LICENSE)
