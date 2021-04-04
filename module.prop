@@ -1,0 +1,6 @@
+id=shadowsocks-rust
+name=shadowsocks-rust for Android
+version=latest_version
+versionCode=20210402
+author=stone
+description=shadowsocks rust with service scripts for Android

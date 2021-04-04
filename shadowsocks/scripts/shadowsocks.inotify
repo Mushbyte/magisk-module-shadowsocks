@@ -1,0 +1,42 @@
+#!/system/bin/sh
+
+inotify=`realpath $0`
+scripts_dir=`dirname ${inotify}`
+service="${scripts_dir}/shadowsocks.service"
+tproxy="${scripts_dir}/oshadowsocks.tproxy"
+
+events=$1
+monitor_dir=$2
+monitor_file=$3
+
+start_shadowsocks() {
+  ${service} start && \
+  if [ -f /data/shadowsocks/appid.list ] || [ -f /data/shadowsocks/softap.list ] ; then
+    ${tproxy} enable
+    settings put global airplane_mode_on 1
+    sleep 1
+    am broadcast -a android.intent.action.AIRPLANE_MODE
+    sleep 1
+    settings put global airplane_mode_on 0
+    sleep 1
+    am broadcast -a android.intent.action.AIRPLANE_MODE
+  fi
+}
+
+stop_shadowsocks() {
+  ${service} stop
+}
+
+main() {
+if [ ! -f /data/shadowsocks/manual ] ; then
+  if [ "${monitor_file}" = "disable" ] ; then
+    if [ "${events}" = "d" ] ; then
+      start_shadowsocks
+    elif [ "${events}" = "n" ] ; then
+      stop_shadowsocks
+    fi
+  fi
+fi
+}
+
+main
