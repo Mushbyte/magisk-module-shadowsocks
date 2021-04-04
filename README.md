@@ -26,10 +26,9 @@ You can download the release installer zip file and install it via the Magisk Ma
 
 - Please make sure the config is correct.
 
-- overture config file is store in `/data/shadowsocks/overture/` folder.
+- overture config file is store in `/data/shadowsocks/overture/` folder. Stronly recommend to deploy a doh server on the shadowsocks server side, such as [dns-over-https](<https://github.com/m13253/dns-over-https>), and use it as the dns upstream server to replace the default cloudflare doh server in the file `/data/shadowsocks/overture/config.yml`. 
 
 - Tips: Please notice that the default configuration has been set to cooperate with the transparent proxy script. Modify `/data/shadowsocks/appid.list` to select which App to proxy.
-
 
 
 ## Usage
@@ -55,14 +54,10 @@ You can download the release installer zip file and install it via the Magisk Ma
 
 - Transparent proxy won't take effect until the shadowsocks-rust service start normally and file `/data/shadowsocks/appid.list` is not empty.
 
-#### The Best Practice on the Sever Side
-
-- Stronly recommend to deploy a dns-over-https server on the server side, such as [dns-over-https](<https://github.com/m13253/dns-over-https>). Use that doh server by editing the file `/data/shadowsocks/overture/config.yml`. 
-
 
 #### Share transparent proxy to WiFi guest or USB guest
 
-**It has not been tested**
+(**It has not been tested**)
 
 - Transparent proxy is share to WiFi guest by default.
 - If you don't want to share proxy to WiFi guest or USB guest, delete the file `/data/shadowsocks/softap.list` or empty it.
