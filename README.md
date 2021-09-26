@@ -1,6 +1,6 @@
 # Shadowsocks Magisk Module
 
-This is a shadowsocks module for Magisk, adapted from [magisk-module-installer](https://github.com/topjohnwu/magisk-module-installer). The module should work for arm64 (android 7.0+).
+This is a shadowsocks module for Magisk, adapted from [magisk-module-installer](https://github.com/topjohnwu/magisk-module-installer). The module should work for arm64 (android 7.0+). Great thanks for the [V2ray Magisk Module](https://github.com/Magisk-Modules-Repo/v2ray) project.
 
 ## Included
 
